@@ -1,0 +1,208 @@
+.category-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.category-metric-card {
+    display: flex;
+    min-width: 0;
+    min-height: 116px;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    border: 1px solid var(--app-border);
+    border-radius: 18px;
+    background: linear-gradient(125deg, var(--app-surface), var(--app-surface-raised));
+    box-shadow: var(--app-shadow);
+}
+
+.category-metric-total { border-color: rgba(168, 85, 247, .24); }
+.category-metric-card > div { display: grid; min-width: 0; gap: 6px; }
+
+.category-metric-icon {
+    display: grid;
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+    place-items: center;
+    border: 1px solid rgba(168, 85, 247, .18);
+    border-radius: 16px;
+    background: rgba(168, 85, 247, .18);
+    color: #c084fc;
+}
+
+.category-metric-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.category-metric-active .category-metric-icon {
+    border-color: rgba(52, 211, 153, .2);
+    background: rgba(52, 211, 153, .14);
+    color: #34d399;
+}
+
+.category-metric-average .category-metric-icon {
+    border-color: rgba(6, 182, 212, .2);
+    background: rgba(6, 182, 212, .14);
+    color: #22d3ee;
+}
+
+.category-metric-label {
+    color: var(--app-muted);
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+}
+
+.category-metric-card strong {
+    overflow: hidden;
+    color: var(--app-text);
+    font-size: 29px;
+    font-weight: 750;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+}
+
+.category-metric-active > div > strong { color: #34d399; }
+.category-average-value { display: flex !important; align-items: baseline; gap: 9px; }
+.category-average-value strong { color: #22d3ee; }
+.category-average-value small { color: var(--app-subtle); font-size: 12px; }
+
+.category-toolbar {
+    margin-bottom: 18px;
+    padding: 14px 18px;
+}
+
+.category-search-form {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(180px, 240px) auto minmax(180px, auto);
+    align-items: center;
+    gap: 12px;
+}
+
+.category-search-field { position: relative; display: block; min-width: 0; }
+.category-search-field svg {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    fill: none;
+    stroke: var(--app-subtle);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.category-search-field input,
+.category-search-form select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    margin: 0;
+    border-radius: 11px;
+}
+
+.category-search-field input { padding-left: 44px; }
+.category-filter-submit { min-height: 46px; }
+
+.category-add-button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 19px;
+    border: 1px solid rgba(192, 132, 252, .24);
+    border-radius: 11px;
+    background: linear-gradient(110deg, #9333ea, #a855f7 54%, #ec4899);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, .22);
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: filter .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.category-add-button svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.category-add-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 9px 26px rgba(236, 72, 153, .3);
+    color: #fff;
+}
+
+.category-table-panel { padding: 8px 18px 14px; }
+.category-table-wrap { border-radius: 12px; }
+.category-table { min-width: 820px; }
+.category-table th { padding: 14px 12px; }
+.category-table td { padding: 15px 12px; vertical-align: middle; }
+.category-table th:first-child { width: 64px; }
+.category-table th:nth-child(2) { width: 220px; }
+.category-table th:nth-child(3) { min-width: 260px; }
+.category-table th:nth-child(4) { width: 130px; text-align: center; }
+.category-table th:nth-child(5) { width: 130px; text-align: center; }
+.category-table th:last-child { width: 120px; text-align: center; }
+.category-table tbody tr { transition: background-color .16s ease; }
+.category-table tbody tr:hover { background: rgba(168, 85, 247, .045); }
+.category-name { color: var(--app-text); font-size: 14px; font-weight: 700; }
+
+.category-description {
+    max-width: 420px;
+    color: var(--app-muted) !important;
+    line-height: 1.5;
+}
+
+.category-table td:nth-child(4),
+.category-table td:nth-child(5) { text-align: center; }
+.category-table td:last-child .table-row-actions { justify-content: center; }
+
+:root[data-theme="light"] .category-metric-active > div > strong { color: #059669; }
+:root[data-theme="light"] .category-average-value strong { color: #0891b2; }
+
+@media (max-width: 1000px) {
+    .category-search-form { grid-template-columns: minmax(200px, 1fr) minmax(160px, .8fr) auto; }
+    .category-add-button { grid-column: 3; grid-row: 2; }
+    .category-filter-submit { grid-column: 2; grid-row: 2; }
+}
+
+@media (max-width: 760px) {
+    .category-metrics { grid-template-columns: 1fr; gap: 10px; }
+    .category-metric-card { min-height: 86px; gap: 14px; padding: 14px 16px; }
+    .category-metric-icon { width: 48px; height: 48px; flex-basis: 48px; }
+    .category-metric-icon svg { width: 24px; height: 24px; }
+    .category-metric-card strong { font-size: 24px; }
+    .category-metric-label { font-size: 11px; }
+    .category-search-form { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .category-search-field,
+    .category-add-button { grid-column: 1 / -1; }
+    .category-filter-submit,
+    .category-add-button { grid-row: auto; }
+    .category-table-panel { padding: 4px 12px 12px; }
+}
+
+@media (max-width: 480px) {
+    .category-search-form { grid-template-columns: 1fr; }
+    .category-search-field,
+    .category-filter-submit,
+    .category-add-button { grid-column: auto; }
+    .category-add-button { width: 100%; }
+}

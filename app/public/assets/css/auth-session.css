@@ -1,0 +1,20 @@
+.nav-logout {
+    width: 100%;
+    padding: 12px 14px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #cbd5e1;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+}
+
+.nav-logout:hover {
+    background: #1d4ed8;
+    color: white;
+}
+
+.nav form {
+    margin: 0;
+}
