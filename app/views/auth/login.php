@@ -1,9 +1,10 @@
 <div class="login-page luxury-login">
     <div class="login-ambient" aria-hidden="true">
-        <span class="login-orb login-orb-violet"></span>
-        <span class="login-orb login-orb-indigo"></span>
-        <span class="login-orb login-orb-gold"></span>
-        <span class="login-mouse-glow" id="loginMouseGlow"></span>
+        <div class="login-deep-space"></div>
+        <div class="login-ambient-light"></div>
+        <canvas id="loginNebulaCanvas"></canvas>
+        <div class="login-center-mask"></div>
+        <canvas id="loginCosmosCanvas"></canvas>
     </div>
 
     <main class="luxury-login-main">
@@ -115,33 +116,8 @@
     </span>
     <button class="luxury-login-toast-close" type="button" id="loginToastClose" aria-label="Đóng thông báo">&times;</button>
 </div>
+<script src="/assets/js/login-cosmos.js?v=<?= filemtime(__DIR__ . "/../../public/assets/js/login-cosmos.js") ?>"></script>
 <script>
-    const loginPage = document.querySelector(".luxury-login");
-    const mouseGlow = document.getElementById("loginMouseGlow");
-
-    const canTrackPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    const allowsMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (loginPage && mouseGlow && canTrackPointer && allowsMotion) {
-        let pointerFrame = null;
-        loginPage.addEventListener("pointermove", function (event) {
-            if (pointerFrame !== null) {
-                cancelAnimationFrame(pointerFrame);
-            }
-            pointerFrame = requestAnimationFrame(function () {
-                const bounds = loginPage.getBoundingClientRect();
-                mouseGlow.style.left = (event.clientX - bounds.left) + "px";
-                mouseGlow.style.top = (event.clientY - bounds.top) + "px";
-                mouseGlow.classList.add("is-visible");
-                pointerFrame = null;
-            });
-        });
-
-        loginPage.addEventListener("pointerleave", function () {
-            mouseGlow.classList.remove("is-visible");
-        });
-    }
-
     document.getElementById("togglePassword").addEventListener("click", function () {
         const password = document.getElementById("password");
         const isVisible = password.type === "text";
